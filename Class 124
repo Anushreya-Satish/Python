@@ -1,0 +1,561 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Anushreya-Satish/Python/blob/main/Class%20124\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "What is a **matrix**?\n",
+        "\n",
+        "We know that is it the arrangement of numbers in tabular form. In Python, we use 2D lists or arrays to represent a matrix. A Matrix should always have a numerical value. \n",
+        "\n",
+        "1D list: It is the list with one row and many columns as shown.\n",
+        "\n",
+        "2D list: It is the list of lists. It can have any number of rows and columns. \n"
+      ],
+      "metadata": {
+        "id": "7pi_JjSnXDm5"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Method 1 to create a 1D and 2D list\n",
+        "A = [3,2,-1,9,5]\n",
+        "print(A)\n",
+        "B =[[1,-2,3],[8,4,6],[-6,5,3]]\n",
+        "print(B)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "EjzftTTIXC-r",
+        "outputId": "efdd3b96-2a67-46b5-b275-ce80411a9090"
+      },
+      "execution_count": 1,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[3, 2, -1, 9, 5]\n",
+            "[[1, -2, 3], [8, 4, 6], [-6, 5, 3]]\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**NumPy** library provides different dedicated operations on arrays and provides faster operations on arrays. "
+      ],
+      "metadata": {
+        "id": "gJAWuKhyfm9S"
+      }
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 2,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "QTSOc5dveetF",
+        "outputId": "4cd528b4-9e94-430b-fc2e-d9750526d539"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[1 2 3 4 5]\n",
+            "<class 'numpy.ndarray'>\n"
+          ]
+        }
+      ],
+      "source": [
+        "#Method to create a 1 D array using NumPy\n",
+        "\n",
+        "import numpy as np\n",
+        "\n",
+        "arr = np.array([1, 2, 3, 4, 5])\n",
+        "print(arr)\n",
+        "print(type(arr))"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#Method-2 to create a 2D array using NumPy\n",
+        "\n",
+        "arr_2d =np.array([[1,2,3],[4,5,6],[7,8,9]])\n",
+        "print(arr_2d)\n",
+        "type(arr_2d)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "mWdX3b9fkE5l",
+        "outputId": "7abeb237-c34a-47a0-9e89-94d9b80f13ed"
+      },
+      "execution_count": 3,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[[1 2 3]\n",
+            " [4 5 6]\n",
+            " [7 8 9]]\n"
+          ]
+        },
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "numpy.ndarray"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 3
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#Array with elements of different data types\n",
+        "\n",
+        "arr_2d_1 =np.array([[1,2,3],['a',5,True],[7,8,9]])\n",
+        "print(arr_2d_1)\n",
+        "type(arr_2d_1)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "_Qot-ThBlNXS",
+        "outputId": "3e0bbee2-baf4-480c-c441-1eb28ae1fde3"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[['1' '2' '3']\n",
+            " ['a' '5' 'True']\n",
+            " ['7' '8' '9']]\n"
+          ]
+        },
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "numpy.ndarray"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 5
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Accessing elements of 2D lists and arrays"
+      ],
+      "metadata": {
+        "id": "gTyC68aBmaV8"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#Accessing elements of 1D list or array\n",
+        "print(A)\n",
+        "print(A[1])      \n",
+        "print(arr)   \n",
+        "print(arr[2])"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "zRJOKcYCrdL2",
+        "outputId": "3627b514-af7c-4d6f-a693-f0fc7e49ade9"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[3, 2, -1, 9, 5]\n",
+            "2\n",
+            "[1 2 3 4 5]\n",
+            "3\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#accessing elements of 2D array method1\n",
+        "print(arr_2d)\n",
+        "print(arr_2d[1,2])\n",
+        "#accessing elements of 2D array method2\n",
+        "print(arr_2d[0][1])"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "9Z85uTpqmZSi",
+        "outputId": "34789501-52e3-4b64-d7b9-7fb2d6921374"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[[1 2 3]\n",
+            " [4 5 6]\n",
+            " [7 8 9]]\n",
+            "6\n",
+            "2\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Updating elements of 2D Lists"
+      ],
+      "metadata": {
+        "id": "OtdsdRVYtA2S"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#To update an element from 2D list/arrays\n",
+        "print(arr_2d)\n",
+        "print('----------------')\n",
+        "# method 1\n",
+        "arr_2d[1,2]=-4\n",
+        "print(arr_2d)\n",
+        "print('----------------')\n",
+        "# method 2\n",
+        "arr_2d[1,2]=8\n",
+        "print(arr_2d)\n"
+      ],
+      "metadata": {
+        "id": "vFQzX-33rV15",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "c13e5f4a-fb72-4c1e-818f-fbff83fbbecf"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[[1 2 3]\n",
+            " [4 5 6]\n",
+            " [7 8 9]]\n",
+            "----------------\n",
+            "[[ 1  2  3]\n",
+            " [ 4  5 -4]\n",
+            " [ 7  8  9]]\n",
+            "----------------\n",
+            "[[1 2 3]\n",
+            " [4 5 8]\n",
+            " [7 8 9]]\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Add/Subtract elements of 2D lists"
+      ],
+      "metadata": {
+        "id": "L8rcQluFvqmK"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#Add Matrices\n",
+        "A = [1,3,6,7,8]\n",
+        "print(A)\n",
+        "\n",
+        "B= [[1,3,9],\n",
+        "    [3,5,7],\n",
+        "    [7,3,6]\n",
+        "]\n",
+        "print(B)"
+      ],
+      "metadata": {
+        "id": "6aqfzfw73nis",
+        "outputId": "5e0c49e2-ad44-4a3e-b40f-9e7937e03545",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "execution_count": 4,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[1, 3, 6, 7, 8]\n",
+            "[[1, 3, 9], [3, 5, 7], [7, 3, 6]]\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#Scalar Multiplication\n",
+        "import numpy as np\n",
+        "\n",
+        "d = np.array([[2,-2], [0,5], [4,7]])\n",
+        "print(d,\"\\n\")\n",
+        "n = 5\n",
+        "mul = np.zeros([3,2])\n",
+        "for i in range(3):\n",
+        "     for j in range(2):\n",
+        "          mul[i][j] = n * d[i][j]\n",
+        "print(mul)\n",
+        "\n",
+        "e = np.multiply(d, n)\n",
+        "print(e)"
+      ],
+      "metadata": {
+        "id": "-vkc2pEK_w-1",
+        "outputId": "dc1d2f20-3533-4f56-e605-59bdc6d5b919",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "execution_count": 15,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[[ 2 -2]\n",
+            " [ 0  5]\n",
+            " [ 4  7]] \n",
+            "\n",
+            "[[ 10. -10.]\n",
+            " [  0.  25.]\n",
+            " [ 20.  35.]]\n",
+            "[[ 10 -10]\n",
+            " [  0  25]\n",
+            " [ 20  35]]\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import numpy as np\n",
+        "\n",
+        "array_2d = np.array([[1,2,3], [\"Anushreya\",3, True],[3,5,9]])\n",
+        "print(array_2d)\n",
+        "type(array_2d)"
+      ],
+      "metadata": {
+        "id": "b83WugxSA2iP",
+        "outputId": "e2fb3c77-d17f-4295-a199-5035267723d4",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "execution_count": 5,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[['1' '2' '3']\n",
+            " ['Anushreya' '3' 'True']\n",
+            " ['3' '5' '9']]\n"
+          ]
+        },
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "numpy.ndarray"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 5
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(array_2d)\n",
+        "print(array_2d[1][0])"
+      ],
+      "metadata": {
+        "id": "a94VREq4Bt--",
+        "outputId": "9397c3a1-4639-4f25-da77-15091edc85bf",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "execution_count": 6,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[['1' '2' '3']\n",
+            " ['Anushreya' '3' 'True']\n",
+            " ['3' '5' '9']]\n",
+            "Anushreya\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#update\n",
+        "print(array_2d[1][0])\n",
+        "array_2d[1][0] = \"Satish\"\n",
+        "print(array_2d[1][0])\n",
+        "print(array_2d)"
+      ],
+      "metadata": {
+        "id": "LGkX9VLoCDfM",
+        "outputId": "4ab4f82e-fe0b-49b8-c3bc-18ee70321c50",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "execution_count": 9,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Satish\n",
+            "Satish\n",
+            "[['1' '2' '3']\n",
+            " ['Satish' '3' 'True']\n",
+            " ['3' '5' '9']]\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#matrix addition\n",
+        "a = np.array([[1,3], [5,4]])\n",
+        "b = np.array([[7,8], [6,9]])\n",
+        "rows = 2\n",
+        "columns = 2\n",
+        "c = [[0,0], [0,0]]\n",
+        "\n",
+        "for i in range(rows):\n",
+        "     for j in range(columns):\n",
+        "          c[i][j] = a[i][j] + b[i][j]\n",
+        "\n",
+        "print(c)"
+      ],
+      "metadata": {
+        "id": "gtDV3zBKCjmj",
+        "outputId": "7727f1c3-06a7-4fe2-fb67-5ca3b29d0eb0",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "execution_count": 13,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[[8, 11], [11, 13]]\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#matrix subtraction \n",
+        "a = np.array([[1,3], [5,4]])\n",
+        "b = np.array([[7,8], [6,9]])\n",
+        "rows = 2\n",
+        "columns= 2\n",
+        "c = [[0,0],[0,0]]\n",
+        "\n",
+        "for i in range(rows):\n",
+        "      for j in range(columns):\n",
+        "           c[i][j] = a[i][j] - b[i][j]\n",
+        "\n",
+        "print(c)"
+      ],
+      "metadata": {
+        "id": "hLL84pf6EEPf",
+        "outputId": "7978e94c-3a61-49a7-d040-18055472992f",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "execution_count": 12,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[[-6, -5], [-1, -5]]\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
